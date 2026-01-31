@@ -51,6 +51,11 @@ const productsSlice = createSlice({
       state.page = 0;
       state.hasMore = true;
     },
+
+    // THIS IS THE IMPORTANT NEW REDUCER (for persistence)
+    setProductsState(state, action) {
+      return action.payload;
+    },
   },
   extraReducers: builder => {
     builder
@@ -71,5 +76,10 @@ const productsSlice = createSlice({
   },
 });
 
-export const { setSearchQuery, resetProducts } = productsSlice.actions;
+export const {
+  setSearchQuery,
+  resetProducts,
+  setProductsState, // exported for App.tsx
+} = productsSlice.actions;
+
 export default productsSlice.reducer;

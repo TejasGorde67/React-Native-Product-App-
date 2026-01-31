@@ -5,8 +5,8 @@ const STORAGE_KEY = 'PRODUCTS_STATE';
 export const saveProductsState = async (state: any) => {
   try {
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch  {
-    // silently fail (acceptable for assignment)
+  } catch {
+    // silently fail
   }
 };
 
